@@ -1,0 +1,13 @@
+@(profiles: List[org.pac4j.core.profile.CommonProfile])
+
+@main("テストページ") {
+    <h1>protected area</h1>
+    <a href="..">Back</a><br />
+    <br /><br />
+    profiles: @profiles<br />
+    @if(org.pac4j.core.util.CommonHelper.isBlank(session.get(org.pac4j.core.context.Pac4jConstants.SESSION_ID))) {
+        <font color="red">session NOT exist</font>
+    }else{
+        <font color="red">@session.get(org.pac4j.core.context.Pac4jConstants.SESSION_ID)</font>
+    }
+}
